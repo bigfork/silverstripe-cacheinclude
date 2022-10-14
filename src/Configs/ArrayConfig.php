@@ -32,6 +32,7 @@ class ArrayConfig implements ConfigInterface
      * @param mixed $value
      * @throws \Exception
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($id, $value)
     {
         throw new \Exception('Configs are immutable');
@@ -42,6 +43,7 @@ class ArrayConfig implements ConfigInterface
      * @return mixed
      * @throws \InvalidArgumentException
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($id)
     {
         if (!array_key_exists($id, $this->config)) {
@@ -55,6 +57,7 @@ class ArrayConfig implements ConfigInterface
      * @param mixed $id
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($id)
     {
         return isset($this->config[$id]);
@@ -64,6 +67,7 @@ class ArrayConfig implements ConfigInterface
      * @param mixed $id
      * @throws \Exception
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($id)
     {
         throw new \Exception('Configs are immutable');
@@ -72,6 +76,7 @@ class ArrayConfig implements ConfigInterface
     /**
      * @return \ArrayIterator
      */
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new \ArrayIterator($this->config);
